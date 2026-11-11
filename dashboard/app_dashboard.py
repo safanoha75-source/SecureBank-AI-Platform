@@ -339,6 +339,7 @@ def handle_fraud(n, cid, amt, loc, ip, lang):
         ])
     except Exception as e:
         return html.Div(f"Error: {str(e)}", style={"color": "red"})
-
-if __name__ == "__main__":
-    app.run(debug=True, port=8050)
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 8050))
+    app.run(host='0.0.0.0', port=port, debug=False)
